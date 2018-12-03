@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.profile.ProfileActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="developersancho.profilescreen.ui.profile.ProfileViewModel" />
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeMember"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+
+            <ImageView
+                android:id="@+id/img_profile_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <com.andexert.library.RippleView
+                android:id="@+id/rippleProfileImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="30dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_profile"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:civ_border_color="#FFF"
+                    app:civ_border_width="1dp" />
+
+            </com.andexert.library.RippleView>
+
+            <TextView
+                android:layout_below="@+id/rippleProfileImage"
+                android:id="@+id/text_profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/chalkboard"
+                android:textColor="@color/jaguar"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="sanchez" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/ic_add_white_24dp"
+                app:backgroundTint="@color/colorPrimary"
+                app:fabCustomSize="40dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeFollowers"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_below="@+id/relativeMember">
+
+            <TextView
+                android:id="@+id/textFollower"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/chalkboard"
+                android:padding="5dp"
+                android:text="@string/followers"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/viewLineFollowers"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/textFollower"
+                android:background="@color/border2" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_followers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/viewLineFollowers"
+                android:background="@color/selago"
+                android:orientation="horizontal" />
+
+            <View
+                android:id="@+id/viewLineFollowers2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/duration" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relativeFollowers"
+            android:background="@color/colorPrimary">
+
+            <com.kekstudio.dachshundtablayout.DachshundTabLayout
+                android:id="@+id/tabDachshundProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                app:ddAnimatedIndicator="dachshund"
+                app:ddIndicatorColor="@android:color/white"
+                app:ddIndicatorHeight="6dp"
+                app:tabBackground="@color/colorPrimary"
+                app:tabGravity="center"
+                app:tabMode="scrollable"
+                app:tabSelectedTextColor="@android:color/white"
+                app:tabTextColor="@android:color/white" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPagerProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tabDachshundProfile"
+                android:background="@color/white" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>
